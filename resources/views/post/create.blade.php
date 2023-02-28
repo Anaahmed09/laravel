@@ -29,21 +29,20 @@
                         id="Title"
                     />
                 </div>
-                @error('Posted_By')
+                @error('Title')
                     <div class="alert alert-danger">{{$message}}</div>
                 @enderror
                 <div class="mb-3">
                     <label for="Posted_By" class="form-label"
                         >Posted_By</label
                     >
-                    <input
-                        type="text"
-                        class="form-control"
-                        name="Posted_By"
-                        id="Posted_By"
-                    />
+                    <select name="Posted_By" id="Posted_By" class="form-control">
+                    @foreach($creators as $creator)
+                        <option>{{$creator->Name}}</option>
+                    @endforeach
+                    </select>
                 </div>
-                @error('Email')
+                @error('Posted_By')
                     <div class="alert alert-danger">{{$message}}</div>
                 @enderror
                 <div class="mb-3">
@@ -57,7 +56,7 @@
                         id="Email"
                     />
                 </div>
-                @error('Description')
+                @error('Email')
                     <div class="alert alert-danger">{{$message}}</div>
                 @enderror
                 <div class="mb-3">
@@ -71,7 +70,7 @@
                         id="Description"
                     />
                 </div>
-                @error('Title')
+                @error('Description')
                     <div class="alert alert-danger">{{$message}}</div>
                 @enderror
                 <button type="submit" class="btn btn-primary">Create New Post</button>

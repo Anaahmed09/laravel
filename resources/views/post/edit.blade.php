@@ -38,13 +38,11 @@
                     <label for="Posted_By" class="form-label"
                         >Posted_By</label
                     >
-                    <input
-                        value="{{$post->Posted_By}}"
-                        type="text"
-                        class="form-control"
-                        name="Posted_By"
-                        id="Posted_By"
-                    />
+                    <select name="Posted_By" id="Posted_By" class="form-control">
+                    @foreach($creators as $creator)
+                        <option>{{$creator->Name}}</option>
+                    @endforeach
+                    </select>
                 </div>
                 @error('Posted_By')
                     <div class="alert alert-danger">{{$message}}</div>

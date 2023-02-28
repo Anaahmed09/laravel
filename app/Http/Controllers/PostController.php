@@ -22,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $creators = DB::table('creators')->get();
+        return view('post.create',compact('creators'));
     }
 
     /**
@@ -55,8 +56,9 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
+        $creators = DB::table('creators')->get();
         $post = posts::find($id);
-        return view('post.edit', compact('post'));
+        return view('post.edit', compact('post','creators'));
     }
 
     /**
